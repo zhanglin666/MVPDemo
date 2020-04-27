@@ -21,6 +21,17 @@ open class BaseApplication : Application() {
         super.onCreate()
         mContext = applicationContext
 
+//        //屏幕适配
+//        ScreenAdapter.setup(this)
+//        ScreenAdapter.register(this,720f,
+//            ScreenAdapter.MATCH_BASE_WIDTH, ScreenAdapter.MATCH_UNIT_DP)
+//
+//        if (isDebug) {
+//            ARouter.openLog()
+//            ARouter.openDebug()
+//        }
+//        ARouter.init(this)
+
         //开启埋点报错日志   开启后无法查看log日志
         CrashHandler.instance.init(this)
         Thread.setDefaultUncaughtExceptionHandler(CrashHandler.instance)

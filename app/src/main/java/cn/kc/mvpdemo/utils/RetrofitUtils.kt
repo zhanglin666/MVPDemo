@@ -1,11 +1,9 @@
 package cn.kc.mvpdemo.utils
 
-import java.util.concurrent.TimeUnit
-
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
-import javax.security.auth.login.LoginException
+import java.util.concurrent.TimeUnit
 
 class RetrofitUtils private constructor() {
 

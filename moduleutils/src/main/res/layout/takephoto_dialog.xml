@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="85dp"
+              android:background="@android:color/white">
+
+    <LinearLayout
+            android:id="@+id/btnPickBySelect"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+        <ImageView android:layout_width="40dp"
+                   android:layout_height="40dp"
+                   android:background="@mipmap/dianhua"/>
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="电话"
+                  android:layout_marginTop="6dp"
+                  android:textSize="15sp"
+                  android:textColor="@color/text_color"/>
+    </LinearLayout>
+
+    <LinearLayout
+            android:id="@+id/btnPickByTake"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+        <ImageView android:layout_width="40dp"
+                   android:layout_height="40dp"
+                   android:background="@mipmap/duanxian"/>
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="短信"
+                  android:layout_marginTop="6dp"
+                  android:gravity="center_horizontal"
+                  android:textSize="15sp"
+                  android:textColor="@color/text_color"/>
+    </LinearLayout>
+</LinearLayout>

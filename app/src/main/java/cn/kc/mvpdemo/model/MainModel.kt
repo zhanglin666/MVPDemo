@@ -1,5 +1,6 @@
 package cn.kc.mvpdemo.model
 
+import android.util.Log
 import cn.kc.moduleutils.base.ResultCallback
 import cn.kc.mvpdemo.contract.MainContract
 import cn.kc.mvpdemo.utils.ApiService
@@ -19,25 +20,13 @@ class MainModel : MainContract.Model {
     private val mDisposables: CompositeDisposable by lazy {
         CompositeDisposable()
     }
+    val mIHttp by lazy {
+        MainFactory.getHttpImp()
+    }
 
     override fun getUserInfo(username: String, callback: ResultCallback<String>) {
-        RetrofitUtils.setBaseUrl("https://api.github.com/")
-        val disposable = RetrofitUtils.instance!!.getApiServier(ApiService::class.java)
-            .getUserInfo(username)
-            .subscribeOn(Schedulers.io())
-            .map {
-                return@map it.string()
-            }
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(
-                {
-                    callback.onSuccess(it.toString())
-                },
-                {
-                    callback.onFail(throw Throwable(it.message))
-                }
-            )
-        mDisposables.add(disposable)
+        //工厂模式   防止更换网络框架时的修改
+        mIHttp.getData(username, callback, mDisposables)
     }
 
     override fun onClear() {
